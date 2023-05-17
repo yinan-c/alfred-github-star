@@ -7,8 +7,8 @@ This workflow is for [Alfred](https://www.alfredapp.com/), which is a launcher f
 
 - `ghs {query}`  will show you a stared repositories list in time order, with repo name, number of stars and descriptions.
    - `⏎`  on a selected result to directly open the repository in your browser
-   - `⌘ + ⏎` to modifier key ⌘ to copy the URL to the clipboard.
-   - `⌃ + ⏎` to copy the `git clone` command to the clipboard.
+   - `⌘ + ⏎` to copy the URL to clipboard.
+   - `⌃ + ⏎` to copy the `git clone` command to clipboard.
 
 ## Setup
 
