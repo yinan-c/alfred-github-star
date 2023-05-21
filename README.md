@@ -13,7 +13,7 @@ This workflow is for [Alfred](https://www.alfredapp.com/), which is a launcher f
 ## Setup
 
 - [Download the Workflow here](https://github.com/ychen-97/alfred-github-star/releases). Set the your Github username to `username`.
-- Set cache time-to-live in seconds in `cache_ttl`, default is 600 seconds before the old cache expires.
+- Set cache time-to-live in seconds in `cache_ttl`, default is 86400 seconds before the old cache expires.
 
 Please note the GitHub API currently restricts anonymous requests to a maximum of 60 calls per hour. It is advised not to run the workflow too often when you set `cache_ttl` at a very small value.
 
