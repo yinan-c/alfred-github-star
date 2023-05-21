@@ -170,13 +170,13 @@ osascript -e "set the clipboard to \"$clone_url\""</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Tested on Alfred 5.
+	<string>Tested with Alfred 5.
 
-Variables
-- username should be set to your GitHub username
-- cache_ttl is the amount of times in seconds until the Workflow refetches your stars from GitHub.
+Variable Configurations:
 
-Set these to your prefered values in Variable panel {x}</string>
+- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 600 seconds.
+
+- `username` should be set to your GitHub username. This workflow retrieves your starred repositories using 'https://api.github.com/users/{username}/starred'.</string>
 	<key>uidata</key>
 	<dict>
 		<key>29D42A92-C63E-48DD-88EF-51F971691178</key>
@@ -209,16 +209,52 @@ Set these to your prefered values in Variable panel {x}</string>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
-	<key>variables</key>
-	<dict>
-		<key>cache_ttl</key>
-		<string>600</string>
-		<key>username</key>
-		<string>ychen-97</string>
-	</dict>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>5</string>
+				<key>placeholder</key>
+				<string>Please set an expire time for caches in seconds</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Cache time-to-live in seconds, to check if last cache expires or not</string>
+			<key>label</key>
+			<string>cache_ttl</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>cache_ttl</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>Please enter your github username</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Your github user name</string>
+			<key>label</key>
+			<string>username</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>username</string>
+		</dict>
+	</array>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ychen-97/alfred-github-star</string>
 </dict>
