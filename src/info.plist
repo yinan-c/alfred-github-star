@@ -110,9 +110,9 @@ python3 github-stars.py</string>
 				<key>subtext</key>
 				<string>Browse starred repositories</string>
 				<key>title</key>
-				<string>Github Stared Repo</string>
+				<string>Github Star</string>
 				<key>type</key>
-				<integer>5</integer>
+				<integer>0</integer>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -170,13 +170,25 @@ osascript -e "set the clipboard to \"$clone_url\""</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>Tested with Alfred 5.
+	<string># Github Star 
+List and search your starred repositories.
+Tested with Alfred 5.
 
-Variable Configurations:
 
-- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 600 seconds.
+## Variable Configurations
 
-- `username` should be set to your GitHub username. This workflow retrieves your starred repositories using 'https://api.github.com/users/{username}/starred'.</string>
+- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 86400 seconds.
+
+- `username` should be set to your GitHub username. This workflow retrieves your starred repositories using 'https://api.github.com/users/{username}/starred'.
+
+- `max_pages` sets the limit for pages retrieved from [GitHub's paginated API](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api), your results will include `max_pages` * 30 recent starred repos. Default (-1) fetches all starred repos.
+
+## Usage
+
+- type `ghs` to list and search
+- `enter` to open url for the selected repo
+- `command` + `enter` to copy the url
+- `control` + `enter` to copy `git clone` command to clipboard</string>
 	<key>uidata</key>
 	<dict>
 		<key>29D42A92-C63E-48DD-88EF-51F971691178</key>
@@ -184,7 +196,7 @@ Variable Configurations:
 			<key>xpos</key>
 			<real>405</real>
 			<key>ypos</key>
-			<real>60</real>
+			<real>65</real>
 		</dict>
 		<key>3D0D2645-4CAE-4B86-9676-C3953FA844F2</key>
 		<dict>
@@ -214,7 +226,7 @@ Variable Configurations:
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>5</string>
+				<string>86400</string>
 				<key>placeholder</key>
 				<string>Please set an expire time for caches in seconds</string>
 				<key>required</key>
@@ -252,7 +264,30 @@ Variable Configurations:
 			<key>variable</key>
 			<string>username</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>-1</string>
+				<key>placeholder</key>
+				<string>Please enter an integer</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Max number of Github API pages to read, your search results will include n*30 of recent starred repos.</string>
+			<key>label</key>
+			<string>max_pages</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>max_pages</string>
+		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>1.1</string>
 	<key>webaddress</key>

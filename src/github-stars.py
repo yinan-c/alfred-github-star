@@ -7,6 +7,7 @@ username = os.getenv('username')
 cache_path = os.getenv('alfred_workflow_cache')
 cache_response = os.path.join(cache_path, 'cache.json')
 cache_ttl = int(os.getenv('cache_ttl'))  # in seconds
+max_pages = int(os.getenv('max_pages', '-1'))  # -1 for no limit
 
 # Check first if caching directory exists.
 if not os.path.isdir(cache_path):
@@ -23,6 +24,9 @@ else:
     resp_json = []
     page = 1
     while True:
+        if max_pages != -1 and page > max_pages:
+            break
+        
         starred_url = f'https://api.github.com/users/{username}/starred?page={page}'
         response = requests.get(starred_url, headers={'User-Agent': 'GitHub Stars Alfred workflow for: ' + username})
         http_status = response.status_code
