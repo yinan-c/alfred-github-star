@@ -4,8 +4,7 @@
 This workflow is for [Alfred](https://www.alfredapp.com/), which is a launcher for MacOS. It allows you to search through your GitHub stared repositories from https://api.github.com/users/{username}/starred.
 
 ## Dependency
-Alfred 5 with [PowerPack](https://www.alfredapp.com/powerpack/), Python3 request library.
-Simply run `pip3 install requests` in your library.
+Alfred 5 with [PowerPack](https://www.alfredapp.com/powerpack/)
 
 ## Usage
 
