@@ -6,8 +6,8 @@ import time
 username = os.getenv('username')
 cache_path = os.getenv('alfred_workflow_cache')
 cache_response = os.path.join(cache_path, 'cache.json')
-cache_ttl = int(os.getenv('cache_ttl'))  # in seconds
-max_pages = int(os.getenv('max_pages', '-1'))  # -1 for no limit
+cache_ttl = float(os.getenv('cache_ttl'))  # in minutes
+max_pages = os.getenv('max_pages')  # empty for no limit
 
 # Check first if caching directory exists.
 if not os.path.isdir(cache_path):
@@ -17,14 +17,14 @@ http_status = 200  # default status code, so when using cache it doesn't run int
 
 # Check if there is cache
 # If not load stars from github API
-if os.path.exists(cache_response) and os.path.getmtime(cache_response) > (time.time() - cache_ttl):
+if os.path.exists(cache_response) and os.path.getmtime(cache_response) > (time.time() - cache_ttl * 60):
     with open(cache_response, 'r') as f:
         resp_json = json.load(f)
 else:
     resp_json = []
     page = 1
     while True:
-        if max_pages != -1 and page > max_pages:
+        if max_pages and page > int(max_pages):
             break
         
         starred_url = f'https://api.github.com/users/{username}/starred?page={page}'

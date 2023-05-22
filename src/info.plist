@@ -47,7 +47,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Github Star</string>
+	<string>GitHub Star</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -97,10 +97,7 @@
 				<key>runningsubtext</key>
 				<string>fetching…</string>
 				<key>script</key>
-				<string>export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.pyenv/shims:$HOME/.pyenv/bin:$PATH"
-
-python3 github-stars.py</string>
+				<string>python3 github-stars.py</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -110,7 +107,7 @@ python3 github-stars.py</string>
 				<key>subtext</key>
 				<string>Browse starred repositories</string>
 				<key>title</key>
-				<string>Github Star</string>
+				<string>GitHub Star</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -170,14 +167,19 @@ osascript -e "set the clipboard to \"$clone_url\""</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># Github Star 
+	<string># GitHub Star 
 List and search your starred repositories.
 Tested with Alfred 5.
 
 
+## Dependency 
+Python3 and `requests` library
+
+- run `pip3 install requests` in your terminal
+
 ## Variable Configurations
 
-- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 86400 seconds.
+- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 60 minutes.
 
 - `username` should be set to your GitHub username. This workflow retrieves your starred repositories using 'https://api.github.com/users/{username}/starred'.
 
@@ -226,22 +228,22 @@ Tested with Alfred 5.
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>86400</string>
+				<string></string>
 				<key>placeholder</key>
-				<string>Please set an expire time for caches in seconds</string>
+				<string>Please enter your GitHub username</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Cache time-to-live in seconds, to check if last cache expires or not</string>
+			<string>Your GitHub user name</string>
 			<key>label</key>
-			<string>cache_ttl</string>
+			<string>Username</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>cache_ttl</string>
+			<string>username</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -249,41 +251,41 @@ Tested with Alfred 5.
 				<key>default</key>
 				<string></string>
 				<key>placeholder</key>
-				<string>Please enter your github username</string>
+				<string>Please enter an integer, leaving empty will fetch all pages</string>
 				<key>required</key>
-				<true/>
+				<false/>
 				<key>trim</key>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Your github user name</string>
+			<string>Maximum number of Github API pages to read, your search results will include n*30 of recent starred repos.</string>
 			<key>label</key>
-			<string>username</string>
+			<string>Maximum Pages</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>username</string>
+			<string>max_pages</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>-1</string>
+				<string>60</string>
 				<key>placeholder</key>
-				<string>Please enter an integer</string>
+				<string>Please set an expire time for caches in minutes</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Max number of Github API pages to read, your search results will include n*30 of recent starred repos.</string>
+			<string>Cache time-to-live in minutes, to check if last cache expires or not</string>
 			<key>label</key>
-			<string>max_pages</string>
+			<string>Cache TTL (minutes)</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>max_pages</string>
+			<string>cache_ttl</string>
 		</dict>
 	</array>
 	<key>variablesdontexport</key>
@@ -291,6 +293,6 @@ Tested with Alfred 5.
 	<key>version</key>
 	<string>1.1</string>
 	<key>webaddress</key>
-	<string>https://github.com/ychen-97/alfred-github-star</string>
+	<string>https://github.com/yinan-c/alfred-github-star</string>
 </dict>
 </plist>
