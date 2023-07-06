@@ -3,7 +3,7 @@
 
 This workflow is for [Alfred](https://www.alfredapp.com/), a powerful launcher for MacOS. This workflow allows you to search through your GitHub stared repositories from https://api.github.com/users/{username}/starred.
 
-Download from the official [Alfred Workflow Gallery](https://alfred.app/workflows/yinanc/github-star/).
+Download from [repo releases](https://github.com/ychen-97/alfred-github-star/releases) or the official [Alfred Workflow Gallery](https://alfred.app/workflows/yinanc/github-star/). Below is a picture from the Gallery.
 
 ![](https://alfred.app/workflows/yinanc/github-star/images/ghs.png)
 
@@ -19,7 +19,7 @@ Alfred 5 with [PowerPack](https://www.alfredapp.com/powerpack/)
 
 ## Setup
 
-- [Download the Workflow here](https://github.com/ychen-97/alfred-github-star/releases). Set the your GitHub username to `username`.
+- Set the your GitHub username to `username`.
 - You can also set a limit for pages retrieved from [GitHub's paginated API](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api), your results will include `max_pages` * 30 recent starred repos. Recommended when you have a large database. Default (-1) fetches all starred repos.
 - Set cache time-to-live in minutes in `cache_ttl`, default is 60 minutes before the old cache expires.
 
