@@ -3,7 +3,9 @@
 
 This workflow is for [Alfred](https://www.alfredapp.com/), a powerful launcher for MacOS. This workflow allows you to search through your GitHub stared repositories from https://api.github.com/users/{username}/starred.
 
-Download from the official [Alfred Workflow Gallery](https://alfred.app/workflows/yinanc/github-star/)
+Download from the official [Alfred Workflow Gallery](https://alfred.app/workflows/yinanc/github-star/).
+
+![](https://alfred.app/workflows/yinanc/github-star/images/ghs.png)
 
 ## Dependency
 Alfred 5 with [PowerPack](https://www.alfredapp.com/powerpack/)
