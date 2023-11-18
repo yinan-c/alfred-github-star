@@ -22,6 +22,7 @@ Alfred 5 with [PowerPack](https://www.alfredapp.com/powerpack/)
 - Set the your GitHub username to `username`.
 - You can also set a limit for pages retrieved from [GitHub's paginated API](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api), your results will include `max_pages` * 30 recent starred repos. Recommended when you have a large database. Default (-1) fetches all starred repos.
 - Set cache time-to-live in minutes in `cache_ttl`, default is 60 minutes before the old cache expires.
+- Optionally, if you'd like to take advantage of higher rate-limits, set a GitHub person access token.
 
 Please note the GitHub API currently restricts anonymous requests to a maximum of 60 calls per hour. It is advised not to run the workflow too often when you set `cache_ttl` at a very small value.
 

@@ -185,6 +185,8 @@ Python3 and `requests` library
 
 - `max_pages` sets the limit for pages retrieved from [GitHub's paginated API](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api), your results will include `max_pages` * 30 recent starred repos. Default (-1) fetches all starred repos.
 
+- `github_api_token` is your GitHub personal access token to authenticate with GitHub when fetching data (optional). Authenticated requests have a much higher rate-limiting threshold. Recommended if you consistently get rate-limit errors.
+
 ## Usage
 
 - type `ghs` to list and search
@@ -286,6 +288,27 @@ Python3 and `requests` library
 			<string>textfield</string>
 			<key>variable</key>
 			<string>cache_ttl</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>Please enter your personel access token, leaving empty makes anonymous requests to GitHub</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>(Optional) Access token to make authenticated calls to the GitHub API. Calls made to GitHub with tokens have higher thresholds for rate-limiting.</string>
+			<key>label</key>
+			<string>GitHub API Personal Access Token</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>github_api_token</string>
 		</dict>
 	</array>
 	<key>variablesdontexport</key>
