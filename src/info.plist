@@ -97,7 +97,9 @@
 				<key>runningsubtext</key>
 				<string>fetching…</string>
 				<key>script</key>
-				<string>python3 github-stars.py</string>
+				<string>export PYTHONPATH='./dependency/'
+
+python3 github-stars.py</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -171,17 +173,13 @@ osascript -e "set the clipboard to \"$clone_url\""</string>
 List and search your starred repositories.
 Tested with Alfred 5.
 
-
-## Dependency 
-Python3 and `requests` library (installed to the workflow)
-
 ## Variable Configurations
-
-- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 60 minutes.
 
 - `username` should be set to your GitHub username. This workflow retrieves your starred repositories using 'https://api.github.com/users/{username}/starred'.
 
-- `max_pages` sets the limit for pages retrieved from [GitHub's paginated API](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api), your results will include `max_pages` * 30 recent starred repos. Default (-1) fetches all starred repos.
+- `max_pages` sets the limit for pages retrieved from [GitHub's paginated API](https://docs.github.com/en/rest/guides/using-pagination-in-the-rest-api), your results will include `max_pages` * 30 recent starred repos. Default (empty) fetches all starred repos.
+
+- `cache_ttl` is the interval that the workflow uses to check if the last cache has expired. If expired, the workflow will refetch data from GitHub on your next request. The default value is set at 60 minutes.
 
 - `github_api_token` is your GitHub personal access token to authenticate with GitHub when fetching data (optional). Authenticated requests have a much higher rate-limiting threshold. Recommended if you consistently get rate-limit errors.
 
@@ -309,8 +307,6 @@ Python3 and `requests` library (installed to the workflow)
 			<string>github_api_token</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>1.2</string>
 	<key>webaddress</key>
