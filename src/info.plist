@@ -173,9 +173,7 @@ Tested with Alfred 5.
 
 
 ## Dependency 
-Python3 and `requests` library
-
-- run `pip3 install requests` in your terminal
+Python3 and `requests` library (installed to the workflow)
 
 ## Variable Configurations
 
@@ -311,6 +309,8 @@ Python3 and `requests` library
 			<string>github_api_token</string>
 		</dict>
 	</array>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>1.2</string>
 	<key>webaddress</key>
