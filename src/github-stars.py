@@ -4,6 +4,7 @@ import requests
 import time
 
 username = os.getenv('username')
+token = os.getenv('github_api_token')
 cache_path = os.getenv('alfred_workflow_cache')
 cache_response = os.path.join(cache_path, 'cache.json')
 cache_ttl = float(os.getenv('cache_ttl'))  # in minutes
@@ -28,7 +29,11 @@ else:
             break
         
         starred_url = f'https://api.github.com/users/{username}/starred?page={page}'
-        response = requests.get(starred_url, headers={'User-Agent': 'GitHub Stars Alfred workflow for: ' + username})
+        headers={'User-Agent': 'GitHub Stars Alfred workflow for: ' + username}
+        if token:
+            headers['Authorization'] = 'Bearer ' + token
+
+        response = requests.get(starred_url, headers=headers)
         http_status = response.status_code
         page_data = response.json()
 
