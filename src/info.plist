@@ -311,10 +311,8 @@ Python3 and `requests` library
 			<string>github_api_token</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/yinan-c/alfred-github-star</string>
 </dict>
