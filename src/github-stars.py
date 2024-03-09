@@ -61,7 +61,7 @@ else:
 items = []
 # Search through the results.
 for star in resp_json:
-    match = ((star['full_name'] + ' ' + star['description']) if search_repo_description else star['full_name']).replace('/', ' ').replace('-', ' ').replace('_', ' ')
+    match = (f"{star['full_name']}  {star['description']}" if search_repo_description else star['full_name']).replace('/', ' ').replace('-', ' ').replace('_', ' ')
     items.append({
         'type': 'default',
         'title': star['full_name'],
