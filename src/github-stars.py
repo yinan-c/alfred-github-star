@@ -9,6 +9,7 @@ cache_path = os.getenv('alfred_workflow_cache')
 cache_response = os.path.join(cache_path, 'cache.json')
 cache_ttl = float(os.getenv('cache_ttl'))  # in minutes
 max_pages = os.getenv('max_pages')  # empty for no limit
+search_repo_description = bool(os.getenv('search_repo_description'))
 
 # Check first if caching directory exists.
 if not os.path.isdir(cache_path):
@@ -27,7 +28,7 @@ else:
     while True:
         if max_pages and page > int(max_pages):
             break
-        
+
         starred_url = f'https://api.github.com/users/{username}/starred?page={page}'
         headers={'User-Agent': 'GitHub Stars Alfred workflow for: ' + username}
         if token:
@@ -60,7 +61,7 @@ else:
 items = []
 # Search through the results.
 for star in resp_json:
-    match = star['full_name'].replace('/', ' ').replace('-', ' ').replace('_', ' ')
+    match = ((star['full_name'] + ' ' + star['description']) if search_repo_description else star['full_name']).replace('/', ' ').replace('-', ' ').replace('_', ' ')
     items.append({
         'type': 'default',
         'title': star['full_name'],
