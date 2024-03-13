@@ -308,24 +308,22 @@ Tested with Alfred 5.
 			<key>variable</key>
 			<string>github_api_token</string>
 		</dict>
-    <dict>
+		<dict>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>no</string>
-				<key>placeholder</key>
-				<string>Search in repo description</string>
+				<false/>
 				<key>required</key>
 				<false/>
-				<key>trim</key>
-				<true/>
+				<key>text</key>
+				<string>Search in repo description</string>
 			</dict>
 			<key>description</key>
-			<string>(Optional) When filtering result, search in repository description as well.</string>
+			<string>When filtering result, search in repository description as well.</string>
 			<key>label</key>
-			<string>Search in repo description</string>
+			<string></string>
 			<key>type</key>
-			<string>textfield</string>
+			<string>checkbox</string>
 			<key>variable</key>
 			<string>search_repo_description</string>
 		</dict>
