@@ -30,11 +30,48 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>FE20F637-87D5-43EE-880A-C6C7A7AD1DA5</string>
+				<string>CADE2763-4D04-4346-9C84-A43437C25E77</string>
 				<key>modifiers</key>
 				<integer>262144</integer>
 				<key>modifiersubtext</key>
 				<string>Copy git clone command to clipboard.</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CADE2763-4D04-4346-9C84-A43437C25E77</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FE20F637-87D5-43EE-880A-C6C7A7AD1DA5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>6DB1411A-19FF-42A9-A3F6-1929B6B523D7</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>80858294-752D-488D-8E60-C72131DC9210</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>67DAC7A1-C68F-42E6-9FE8-46DD5AC6DDD8</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>56B403A7-E741-4CC6-9E9C-7464C2E6E70B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -56,7 +93,7 @@
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
-				<string>{query}</string>
+				<string>https://github.com/{query}</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>transient</key>
@@ -72,10 +109,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://github.com/{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>41CCB96E-8804-4939-ACEF-BE00D2DC015F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>argumenttreatemptyqueryasnil</key>
 				<true/>
 				<key>argumenttrimmode</key>
@@ -125,33 +183,12 @@ python3 github-stars.py</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>41CCB96E-8804-4939-ACEF-BE00D2DC015F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>clone_url="git clone {query}.git"
+				<string>clone_url="git clone https://github.com/{query}.git"
 osascript -e "set the clipboard to \"$clone_url\""</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -164,6 +201,100 @@ osascript -e "set the clipboard to \"$clone_url\""</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>FE20F637-87D5-43EE-880A-C6C7A7AD1DA5</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>clone_url="git clone git@github.com:{query}.git"
+osascript -e "set the clipboard to \"$clone_url\""</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>80858294-752D-488D-8E60-C72131DC9210</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:clone_protocal}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>https</string>
+						<key>outputlabel</key>
+						<string>https</string>
+						<key>uid</key>
+						<string>6DB1411A-19FF-42A9-A3F6-1929B6B523D7</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:clone_protocal}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>ssh</string>
+						<key>outputlabel</key>
+						<string>ssh</string>
+						<key>uid</key>
+						<string>67DAC7A1-C68F-42E6-9FE8-46DD5AC6DDD8</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>gh cli</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>CADE2763-4D04-4346-9C84-A43437C25E77</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>clone_url="gh repo clone {query}"
+osascript -e "set the clipboard to \"$clone_url\""</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>56B403A7-E741-4CC6-9E9C-7464C2E6E70B</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -196,30 +327,51 @@ Tested with Alfred 5.
 		<key>29D42A92-C63E-48DD-88EF-51F971691178</key>
 		<dict>
 			<key>xpos</key>
-			<real>405</real>
+			<real>260</real>
 			<key>ypos</key>
-			<real>65</real>
+			<real>15</real>
 		</dict>
 		<key>3D0D2645-4CAE-4B86-9676-C3953FA844F2</key>
 		<dict>
 			<key>xpos</key>
-			<real>175</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>195</real>
+			<real>145</real>
 		</dict>
 		<key>41CCB96E-8804-4939-ACEF-BE00D2DC015F</key>
 		<dict>
 			<key>xpos</key>
-			<real>405</real>
+			<real>260</real>
 			<key>ypos</key>
-			<real>195</real>
+			<real>145</real>
+		</dict>
+		<key>56B403A7-E741-4CC6-9E9C-7464C2E6E70B</key>
+		<dict>
+			<key>xpos</key>
+			<real>435</real>
+			<key>ypos</key>
+			<real>455</real>
+		</dict>
+		<key>80858294-752D-488D-8E60-C72131DC9210</key>
+		<dict>
+			<key>xpos</key>
+			<real>435</real>
+			<key>ypos</key>
+			<real>320</real>
+		</dict>
+		<key>CADE2763-4D04-4346-9C84-A43437C25E77</key>
+		<dict>
+			<key>xpos</key>
+			<real>290</real>
+			<key>ypos</key>
+			<real>325</real>
 		</dict>
 		<key>FE20F637-87D5-43EE-880A-C6C7A7AD1DA5</key>
 		<dict>
 			<key>xpos</key>
-			<real>405</real>
+			<real>435</real>
 			<key>ypos</key>
-			<real>325</real>
+			<real>185</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -327,9 +479,39 @@ Tested with Alfred 5.
 			<key>variable</key>
 			<string>search_repo_description</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>https</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>HTTPS</string>
+						<string>https</string>
+					</array>
+					<array>
+						<string>SSH</string>
+						<string>ssh</string>
+					</array>
+					<array>
+						<string>GitHub CLI</string>
+						<string>gh</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Git Clone Protocal</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>clone_protocal</string>
+		</dict>
 	</array>
 	<key>version</key>
-	<string>1.3</string>
+	<string>1.4</string>
 	<key>webaddress</key>
 	<string>https://github.com/yinan-c/alfred-github-star</string>
 </dict>

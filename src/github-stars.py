@@ -66,7 +66,7 @@ for star in resp_json:
         'type': 'default',
         'title': star['full_name'],
         'subtitle': f" ⭐ {star['stargazers_count']},  {star['description']}",
-        'arg': f"https://www.github.com/{star['full_name']}",
+        'arg': f"{star['full_name']}",
         'autocomplete': star['full_name'],
         'icon': {
             'path': "./icon.png"
